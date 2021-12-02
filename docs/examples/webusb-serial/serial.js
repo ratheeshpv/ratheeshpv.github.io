@@ -11,8 +11,9 @@ var serial = {};
 
   serial.requestPort = function() {
     const filters = [
-      { 'vendorId': 0x239A }, // Adafruit boards
+     { 'vendorId': 0x239A }, // Adafruit boards
       { 'vendorId': 0xcafe }, // TinyUSB example
+      { 'vendorId': 0x2886 }, //'productId': 0x802F }, // Seeeduino XIAO
     ];
     return navigator.usb.requestDevice({ 'filters': filters }).then(
       device => new serial.Port(device)
